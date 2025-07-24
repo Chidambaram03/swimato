@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Swimato</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <div class="logo">Swimato</div>
+        <nav>
+            <span id="userWelcome"></span>
+            <button onclick="logout()" id="logoutBtn" style="display: none;">Logout</button>
+        </nav>
+    </header>
+
+    <!-- Menu Section -->
+    <main>
+        <section class="cuisine">
+            <h2>South Indian Dishes</h2>
+            <div class="dish-grid">
+                <div class="dish" data-id="1">
+                    <img src="images/idly.jfif" alt="Idli"/>
+                    <p>Idli</p>
+                    <p class="price">₹50</p>
+                    <input type="number" min="0" placeholder="Qty" class="quantity"/>
+                    <input type="checkbox" class="select-dish" />
+                </div>
+                <div class="dish" data-id="2">
+                    <img src="images/dosa.jfif" alt="Dosa"/>
+                    <p>Dosa</p>
+                    <p class="price">₹80</p>
+                    <input type="number" min="0" placeholder="Qty" class="quantity"/>
+                    <input type="checkbox" class="select-dish" />
+                </div>
+                <div class="dish" data-id="3">
+                    <img src="images/vada.jfif" alt="Vada"/>
+                    <p>Vada</p>
+                    <p class="price">₹40</p>
+                    <input type="number" min="0" placeholder="Qty" class="quantity"/>
+                    <input type="checkbox" class="select-dish" />
+                </div>
+            </div>
+        </section>
+
+        <section class="cuisine">
+            <h2>North Indian Dishes</h2>
+            <div class="dish-grid">
+                <div class="dish" data-id="4">
+                    <img src="images/paneer.jfif" alt="Paneer Butter Masala"/>
+                    <p>Paneer Butter Masala</p>
+                    <p class="price">₹200</p>
+                    <input type="number" min="0" placeholder="Qty" class="quantity"/>
+                    <input type="checkbox" class="select-dish" />
+                </div>
+                <div class="dish" data-id="5">
+                    <img src="images/biriyani.jfif" alt="Biryani"/>
+                    <p>Biryani</p>
+                    <p class="price">₹180</p>
+                    <input type="number" min="0" placeholder="Qty" class="quantity"/>
+                    <input type="checkbox" class="select-dish" />
+                </div>
+                <div class="dish" data-id="6">
+                    <img src="images/rajma.jfif" alt="Rajma Chawal"/>
+                    <p>Rajma Chawal</p>
+                    <p class="price">₹120</p>
+                    <input type="number" min="0" placeholder="Qty" class="quantity"/>
+                    <input type="checkbox" class="select-dish" />
+                </div>
+            </div>
+        </section>
+
+        <section class="cuisine">
+            <h2>Chinese Dishes</h2>
+            <div class="dish-grid">
+                <div class="dish" data-id="7">
+                    <img src="images/noodles.jfif" alt="Noodles"/>
+                    <p>Noodles</p>
+                    <p class="price">₹100</p>
+                    <input type="number" min="0" placeholder="Qty" class="quantity"/>
+                    <input type="checkbox" class="select-dish" />
+                </div>
+                <div class="dish" data-id="8">
+                    <img src="images/manchurian.jfif" alt="Manchurian"/>
+                    <p>Manchurian</p>
+                    <p class="price">₹150</p>
+                    <input type="number" min="0" placeholder="Qty" class="quantity"/>
+                    <input type="checkbox" class="select-dish" />
+                </div>
+                <div class="dish" data-id="9">
+                    <img src="images/friedrice.jfif" alt="Fried Rice"/>
+                    <p>Fried Rice</p>
+                    <p class="price">₹120</p>
+                    <input type="number" min="0" placeholder="Qty" class="quantity"/>
+                    <input type="checkbox" class="select-dish" />
+                </div>
+            </div>
+        </section>
+
+        <section class="cuisine">
+            <h2>Korean Dishes</h2>
+            <div class="dish-grid">
+                <div class="dish" data-id="10">
+                    <img src="images/Bibimbap.jfif" alt="Bibimbap"/>
+                    <p>Bibimbap</p>
+                    <p class="price">₹250</p>
+                    <input type="number" min="0" placeholder="Qty" class="quantity"/>
+                    <input type="checkbox" class="select-dish" />
+                </div>
+                <div class="dish" data-id="11">
+                    <img src="images/kimchi.jfif" alt="Kimchi Fried Rice"/>
+                    <p>Kimchi Fried Rice</p>
+                    <p class="price">₹180</p>
+                    <input type="number" min="0" placeholder="Qty" class="quantity"/>
+                    <input type="checkbox" class="select-dish" />
+                </div>
+                <div class="dish" data-id="12">
+                    <img src="images/bulgogi.jfif" alt="Bulgogi"/>
+                    <p>Bulgogi</p>
+                    <p class="price">₹300</p>
+                    <input type="number" min="0" placeholder="Qty" class="quantity"/>
+                    <input type="checkbox" class="select-dish" />
+                </div>
+                <div class="dish" data-id="13">
+                    <img src="images/ramen.jfif" alt="Ramen"/>
+                    <p>Ramen</p>
+                    <p class="price">₹220</p>
+                    <input type="number" min="0" placeholder="Qty" class="quantity"/>
+                    <input type="checkbox" class="select-dish" />
+                </div>
+            </div>
+        </section>
+
+        <div class="cart-summary">
+            <h3>Cart Summary</h3>
+            <div id="cartItems"></div>
+            <p>Total: ₹<span id="cartTotal">0</span></p>
+        </div>
+
+        <button onclick="goToPayment()" class="proceed-button">Proceed to Payment</button>
+    </main>
+
+    <!-- Payment Section -->
+    <section id="paymentSection" style="display:none;">
+        <h2>Select Payment Method</h2>
+        <div class="payment-options">
+            <label>
+                <input type="radio" name="payment" value="cod" onchange="showCOD()">
+                Cash on Delivery
+            </label>
+            <label>
+                <input type="radio" name="payment" value="online" onchange="showOnline()">
+                Online Banking
+            </label>
+        </div>
+
+        <div id="bankDetails" style="display:none;">
+            <input type="text" placeholder="Bank Name" required/>
+            <input type="text" placeholder="Account Number" required/>
+            <input type="text" placeholder="IFSC Code" required/>
+        </div>
+
+        <div class="order-summary">
+            <h3>Order Summary</h3>
+            <div id="orderItems"></div>
+            <p>Total Amount: ₹<span id="orderTotal">0</span></p>
+        </div>
+
+        <button onclick="placeOrder()" class="proceed-button">Place Order</button>
+    </section>
+
+    <!-- Order Confirmation -->
+    <section id="confirmation" style="display:none;">
+        <h2>Thank you!</h2>
+        <p>Your order has been placed successfully.</p>
+        <p>Order ID: <span id="orderId"></span></p>
+        <p>Estimated delivery time: 30-45 minutes</p>
+        <button onclick="window.location.reload()" class="proceed-button">Place New Order</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
